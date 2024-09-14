@@ -10,7 +10,7 @@ export default class CheckStockUsecase {
 
   async execute(input: CheckStockInputDto): Promise<CheckStockOutputDto> {
     const product = await this._productRepository.find(input.productId);
-    console.log(product.id.id);
+
     return {
       productId: product.id.id,
       stock: product.stock,
