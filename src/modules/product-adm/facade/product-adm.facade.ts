@@ -1,4 +1,4 @@
-import { UsecaseInterface } from '../../@shared/usecase/usecase.interface';
+import UsecaseInterface from '../../@shared/usecase/usecase.interface';
 import ProductAdmFacadeInterface, {
   AddProductFacadeInputDto,
   CheckStockFacadeInputDto,
