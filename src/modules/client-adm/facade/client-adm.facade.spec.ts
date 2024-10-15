@@ -4,6 +4,7 @@ import ClientRepository from '../repository/client.repository';
 import AddClientUsecase from '../usecase/add-client/add-client.usecase';
 import ClientAdmFacade from './client-adm.facade';
 import FindClientUsecase from '../usecase/find-client/find-client.usecase';
+import ClientAdmFacadeFactory from '../factory/client-adm.facade.factory';
 
 describe('Client Adm Facade unit test', () => {
   let sequelize: Sequelize;
@@ -25,12 +26,7 @@ describe('Client Adm Facade unit test', () => {
   });
 
   it('should add a client', async () => {
-    const repository = new ClientRepository();
-    const addUsecase = new AddClientUsecase(repository);
-    const facade = new ClientAdmFacade({
-      addUsecase: addUsecase,
-      findUsecase: undefined,
-    });
+    const facade = ClientAdmFacadeFactory.create();
 
     const input = {
       id: '1',
@@ -52,12 +48,7 @@ describe('Client Adm Facade unit test', () => {
   });
 
   it('should find a client', async () => {
-    const repository = new ClientRepository();
-    const findUsecase = new FindClientUsecase(repository);
-    const facade = new ClientAdmFacade({
-      addUsecase: undefined,
-      findUsecase: findUsecase,
-    });
+    const facade = ClientAdmFacadeFactory.create();
 
     const clientResult = await ClientModel.create({
       id: '1',
