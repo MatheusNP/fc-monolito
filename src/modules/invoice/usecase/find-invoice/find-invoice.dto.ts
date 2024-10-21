@@ -21,5 +21,4 @@ export interface FindInvoiceOutputDTO {
   }[];
   total: number;
   createdAt: Date;
-  updatedAt: Date;
 }

@@ -25,7 +25,6 @@ export default class FindInvoiceUseCase {
       }),
       total: invoice.items.reduce((total, item) => total + item.price, 0),
       createdAt: invoice.createdAt,
-      updatedAt: invoice.updatedAt,
     };
   }
 }
