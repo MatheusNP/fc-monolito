@@ -23,7 +23,13 @@ export default class GenerateInvoiceUseCase {
         input.state,
         input.zipCode
       ),
-      items: input.items,
+      items: input.items.map((item) => {
+        return {
+          id: new Id(item.id),
+          name: item.name,
+          price: item.price,
+        };
+      }),
     };
 
     const invoice = new Invoice(props);
@@ -42,7 +48,7 @@ export default class GenerateInvoiceUseCase {
       zipCode: invoice.address.zipCode,
       items: invoice.items.map((item) => {
         return {
-          id: item.id,
+          id: item.id.id,
           name: item.name,
           price: item.price,
         };

@@ -19,7 +19,7 @@ const MockRepository = () => {
       ),
       items: [
         {
-          id: '1',
+          id: new Id('a'),
           name: 'Product 1',
           price: 100,
         },
@@ -50,7 +50,7 @@ describe('FindInvoice UseCase unit test', () => {
     expect(result.address.state).toBe('State 1');
     expect(result.address.zipCode).toBe('ZipCode 1');
     expect(result.items[0]).toBeDefined();
-    expect(result.items[0].id).toBe('1');
+    expect(result.items[0].id).toBe('a');
     expect(result.items[0].name).toBe('Product 1');
     expect(result.items[0].price).toBe(100);
     expect(result.total).toBe(100);
