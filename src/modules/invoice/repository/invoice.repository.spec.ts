@@ -46,23 +46,24 @@ describe('Invoice Repository unit test', () => {
         }),
       ],
     });
-
     const repository = new InvoiceRepository();
+    await repository.generate(invoice);
 
-    const result = await repository.generate(invoice);
+    const invoiceResult = await InvoiceModel.findOne({ where: { id: '1' } });
+    const invoiceDb = invoiceResult.get({ plain: true });
 
-    expect(result.id.id).toBe(result.id.id);
-    expect(result.name).toBe(result.name);
-    expect(result.document).toBe(result.document);
-    expect(result.address.street).toBe(result.address.street);
-    expect(result.address.number).toBe(result.address.number);
-    expect(result.address.complement).toBe(result.address.complement);
-    expect(result.address.city).toBe(result.address.city);
-    expect(result.address.state).toBe(result.address.state);
-    expect(result.address.zipCode).toBe(result.address.zipCode);
-    expect(result.items[0].id.id).toBe(result.items[0].id.id);
-    expect(result.items[0].name).toBe(result.items[0].name);
-    expect(result.items[0].price).toBe(result.items[0].price);
+    expect(invoiceDb.id).toBe(invoice.id.id);
+    expect(invoiceDb.name).toBe(invoice.name);
+    expect(invoiceDb.document).toBe(invoice.document);
+    expect(invoiceDb.street).toBe(invoice.address.street);
+    expect(invoiceDb.number).toBe(invoice.address.number);
+    expect(invoiceDb.complement).toBe(invoice.address.complement);
+    expect(invoiceDb.city).toBe(invoice.address.city);
+    expect(invoiceDb.state).toBe(invoice.address.state);
+    expect(invoiceDb.zipCode).toBe(invoice.address.zipCode);
+    expect(invoiceDb.items[0].id).toBe(invoice.items[0].id.id);
+    expect(invoiceDb.items[0].name).toBe(invoice.items[0].name);
+    expect(invoiceDb.items[0].price).toBe(invoice.items[0].price);
   });
 
   it('should find an invoice', async () => {

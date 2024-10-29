@@ -1,6 +1,6 @@
 import Address from '../../../@shared/domain/value-object/address.value-object';
 import Id from '../../../@shared/domain/value-object/id.value-object';
-import FindInvoiceUseCase from './find-invoice.usecase';
+import FindInvoiceUsecase from './find-invoice.usecase';
 
 const MockRepository = () => {
   return {
@@ -31,7 +31,7 @@ const MockRepository = () => {
 describe('FindInvoice UseCase unit test', () => {
   it('should find a invoice', async () => {
     const invoiceRepository = MockRepository();
-    const usecase = new FindInvoiceUseCase(invoiceRepository);
+    const usecase = new FindInvoiceUsecase(invoiceRepository);
 
     const input = {
       id: '1',

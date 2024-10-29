@@ -1,6 +1,9 @@
 import { Column, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'invoices' })
+@Table({
+  tableName: 'invoices',
+  timestamps: false,
+})
 export default class InvoiceModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })

@@ -34,7 +34,6 @@ describe('Client Repository unit test', () => {
     await clientRepository.add(client);
 
     const clientResult = await ClientModel.findOne({ where: { id: '1' } });
-
     const clientDb = clientResult.get({ plain: true });
 
     expect(clientDb.id).toEqual(client.id.id);

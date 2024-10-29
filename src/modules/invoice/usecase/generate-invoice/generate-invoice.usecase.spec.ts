@@ -1,6 +1,6 @@
 import Address from '../../../@shared/domain/value-object/address.value-object';
 import Id from '../../../@shared/domain/value-object/id.value-object';
-import GenerateInvoiceUseCase from './generate-invoice.usecase';
+import GenerateInvoiceUsecase from './generate-invoice.usecase';
 
 const MockRepository = () => {
   return {
@@ -31,7 +31,7 @@ const MockRepository = () => {
 describe('GenerateInvoice UseCase unit test', () => {
   it('should generate a invoice', async () => {
     const invoiceRepository = MockRepository();
-    const usecase = new GenerateInvoiceUseCase(invoiceRepository);
+    const usecase = new GenerateInvoiceUsecase(invoiceRepository);
 
     const input = {
       name: 'Invoice 1',

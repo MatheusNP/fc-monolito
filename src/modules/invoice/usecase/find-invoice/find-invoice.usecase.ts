@@ -1,7 +1,7 @@
 import InvoiceGateway from '../../gateway/invoice.gateway';
 import { FindInvoiceInputDTO, FindInvoiceOutputDTO } from './find-invoice.dto';
 
-export default class FindInvoiceUseCase {
+export default class FindInvoiceUsecase {
   private _invoiceRepository: InvoiceGateway;
 
   constructor(invoiceRepository: InvoiceGateway) {

@@ -5,7 +5,7 @@ import Invoice from '../../domain/invoice.entity';
 import InvoiceGateway from '../../gateway/invoice.gateway';
 import { GenerateInvoiceInputDto, GenerateInvoiceOutputDto } from './generate-invoice.dto';
 
-export default class GenerateInvoiceUseCase {
+export default class GenerateInvoiceUsecase {
   private _invoiceRepository: InvoiceGateway;
 
   constructor(invoiceRepository: InvoiceGateway) {
