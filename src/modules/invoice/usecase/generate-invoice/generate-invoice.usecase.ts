@@ -1,5 +1,6 @@
 import Address from '../../../@shared/domain/value-object/address.value-object';
 import Id from '../../../@shared/domain/value-object/id.value-object';
+import InvoiceItem from '../../domain/invoice-item.entity';
 import Invoice from '../../domain/invoice.entity';
 import InvoiceGateway from '../../gateway/invoice.gateway';
 import { GenerateInvoiceInputDto, GenerateInvoiceOutputDto } from './generate-invoice.dto';
@@ -24,11 +25,11 @@ export default class GenerateInvoiceUseCase {
         input.zipCode
       ),
       items: input.items.map((item) => {
-        return {
+        return new InvoiceItem({
           id: new Id(item.id),
           name: item.name,
           price: item.price,
-        };
+        });
       }),
     };
 
