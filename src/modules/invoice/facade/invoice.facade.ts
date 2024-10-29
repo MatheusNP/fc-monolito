@@ -1,4 +1,3 @@
-import UsecaseInterface from '../../@shared/usecase/usecase.interface';
 import FindInvoiceUsecase from '../usecase/find-invoice/find-invoice.usecase';
 import GenerateInvoiceUsecase from '../usecase/generate-invoice/generate-invoice.usecase';
 import InvoiceFacadeInterface, {
