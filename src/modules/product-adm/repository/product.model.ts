@@ -15,15 +15,15 @@ export class ProductModel extends Model {
   @Column({ allowNull: false })
   description: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, field: 'purchase_price' })
   purchasePrice: number;
 
   @Column({ allowNull: false })
   stock: number;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, field: 'created_at' })
   createdAt: Date;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, field: 'updated_at' })
   updatedAt: Date;
 }

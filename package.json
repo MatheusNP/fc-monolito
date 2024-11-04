@@ -16,7 +16,10 @@
   },
   "scripts": {
     "test": "npm run tsc -- --noEmit && jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "migrate": "node --trace-deprecation -r ts-node/register/transpile-only ./src/migrations/config/migrator-cli.ts",
+    "migrate:create": "node --trace-deprecation -r ts-node/register/transpile-only ./src/migrations/config/migrator-cli.ts create --folder src/migrations/migrations --name ",
+    "dev": "nodemon ./src/infrastructure/api/server.ts"
   },
   "dependencies": {
     "@types/express": "^4.17.21",
@@ -28,6 +31,7 @@
     "sequelize": "^6.37.3",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.7",
+    "umzug": "^3.8.2",
     "uuid": "^10.0.0",
     "yup": "^1.4.0"
   }
