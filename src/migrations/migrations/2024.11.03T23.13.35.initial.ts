@@ -111,6 +111,10 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataType.STRING(255),
       allowNull: false,
     },
+    email: {
+      type: DataType.STRING(255),
+      allowNull: false,
+    },
     street: {
       type: DataType.STRING(255),
       allowNull: false,
