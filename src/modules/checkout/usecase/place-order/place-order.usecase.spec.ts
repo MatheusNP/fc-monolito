@@ -12,7 +12,7 @@ describe('PlaceOrder usecase unit test', () => {
 
     it('should throw error if no products are selected', async () => {
       const input: PlaceOrderInputDto = {
-        clientID: '1',
+        clientId: '1',
         products: [],
       };
 
@@ -35,7 +35,7 @@ describe('PlaceOrder usecase unit test', () => {
       placeOrderUsecase['_productFacade'] = mockProductFacade;
 
       let input: PlaceOrderInputDto = {
-        clientID: '1',
+        clientId: '1',
         products: [{ productId: '1' }],
       };
 
@@ -44,7 +44,7 @@ describe('PlaceOrder usecase unit test', () => {
       );
 
       input = {
-        clientID: '1',
+        clientId: '1',
         products: [{ productId: '0' }, { productId: '1' }],
       };
 
@@ -54,7 +54,7 @@ describe('PlaceOrder usecase unit test', () => {
       expect(mockProductFacade.checkStock).toHaveBeenCalledTimes(3);
 
       input = {
-        clientID: '1',
+        clientId: '1',
         products: [{ productId: '0' }, { productId: '1' }, { productId: '2' }],
       };
 
@@ -135,7 +135,7 @@ describe('PlaceOrder usecase unit test', () => {
       placeOrderUsecase['_clientFacade'] = mockClientFacade;
 
       const input: PlaceOrderInputDto = {
-        clientID: '0',
+        clientId: '0',
         products: [],
       };
 
@@ -159,7 +159,7 @@ describe('PlaceOrder usecase unit test', () => {
         .mockRejectedValue(new Error('No products selected'));
 
       const input: PlaceOrderInputDto = {
-        clientID: '1',
+        clientId: '1',
         products: [],
       };
 
@@ -249,13 +249,13 @@ describe('PlaceOrder usecase unit test', () => {
         });
 
         const input: PlaceOrderInputDto = {
-          clientID: '1c',
+          clientId: '1c',
           products: [{ productId: '1' }, { productId: '2' }],
         };
 
         let output = await placeOrderUsecase.execute(input);
 
-        expect(output.invoiceID).toBeNull();
+        expect(output.invoiceId).toBeNull();
         expect(output.total).toBe(70);
         expect(output.products).toStrictEqual([{ productId: '1' }, { productId: '2' }]);
         expect(mockClientFacade.find).toHaveBeenCalledTimes(1);
@@ -283,13 +283,13 @@ describe('PlaceOrder usecase unit test', () => {
         });
 
         const input: PlaceOrderInputDto = {
-          clientID: '1c',
+          clientId: '1c',
           products: [{ productId: '1' }, { productId: '2' }],
         };
 
         let output = await placeOrderUsecase.execute(input);
 
-        expect(output.invoiceID).toBe('1i');
+        expect(output.invoiceId).toBe('1i');
         expect(output.total).toBe(70);
         expect(output.products).toStrictEqual([{ productId: '1' }, { productId: '2' }]);
         expect(mockClientFacade.find).toHaveBeenCalledTimes(1);

@@ -36,7 +36,7 @@ export default class PlaceOrderUsecase implements UsecaseInterface {
   }
 
   async execute(input: PlaceOrderInputDto): Promise<PlaceOrderOutputDto> {
-    const client = await this._clientFacade.find({ id: input.clientID });
+    const client = await this._clientFacade.find({ id: input.clientId });
     if (!client) {
       throw new Error('Client not found');
     }
@@ -87,7 +87,7 @@ export default class PlaceOrderUsecase implements UsecaseInterface {
 
     return {
       id: order.id.id,
-      invoiceID: payment.status === 'approved' ? invoice.id : null,
+      invoiceId: payment.status === 'approved' ? invoice.id : null,
       status: order.status,
       total: order.total,
       products: order.products.map((p) => ({

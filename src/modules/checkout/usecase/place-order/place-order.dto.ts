@@ -1,5 +1,5 @@
 export interface PlaceOrderInputDto {
-  clientID: string;
+  clientId: string;
   products: {
     productId: string;
   }[];
@@ -7,7 +7,7 @@ export interface PlaceOrderInputDto {
 
 export interface PlaceOrderOutputDto {
   id: string;
-  invoiceID: string;
+  invoiceId: string;
   status: string;
   total: number;
   products: {
